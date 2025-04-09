@@ -1,12 +1,9 @@
 [phases.setup]
 nixPkgs = ["python311", "nodejs_18"]
-cmds = [
-  "python3.11 -m ensurepip --upgrade"
-]
 
 [phases.install]
 cmds = [
-  "pip install -r api/requirements.txt",
+  "pip install --break-system-packages -r api/requirements.txt",
   "cd frontend && npm install && npm run build"
 ]
 
@@ -16,4 +13,4 @@ cmds = [
 ]
 
 [start]
-cmd = "python3 api/app.py"
+cmd = "python3 api/main.py"
