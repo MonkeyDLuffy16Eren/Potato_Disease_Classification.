@@ -1,8 +1,11 @@
 [phases.setup]
-nixPkgs = ["python311", "python311Packages.pip", "nodejs_18"]
+nixPkgs = ["python311", "python311Packages.pip", "python311Packages.virtualenv", "nodejs_18"]
 
 [phases.install]
 cmds = [
+  "python3.11 -m venv venv",
+  ". venv/bin/activate",
+  "pip install --upgrade pip",
   "pip install -r backend/requirements.txt",
   "cd frontend && npm install && npm run build"
 ]
@@ -13,4 +16,4 @@ cmds = [
 ]
 
 [start]
-cmd = "python3 backend/app.py"
+cmd = ". venv/bin/activate && python3 backend/app.py"
