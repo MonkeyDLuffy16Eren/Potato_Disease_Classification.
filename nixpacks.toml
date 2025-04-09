@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["python311", "pip", "nodejs_18"]
+nixPkgs = ["python311", "nodejs_18"]
 
 [phases.install]
 cmds = [
@@ -9,7 +9,7 @@ cmds = [
 
 [phases.build]
 cmds = [
-  "cp -r frontend/dist backend/static"
+  "cp -r frontend/build backend/static"
 ]
 
 [start]
