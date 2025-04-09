@@ -1,8 +1,5 @@
 [phases.setup]
-nixPkgs = ["python311", "nodejs_18"]
-cmds = [
-  "python3.11 -m ensurepip --upgrade"
-]
+nixPkgs = ["python311", "python311Packages.pip", "nodejs_18"]
 
 [phases.install]
 cmds = [
