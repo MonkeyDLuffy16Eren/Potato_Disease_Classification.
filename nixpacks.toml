@@ -1,0 +1,16 @@
+[phases.setup]
+nixPkgs = ["python311", "pip", "nodejs_18"]
+
+[phases.install]
+cmds = [
+  "pip install -r backend/requirements.txt",
+  "cd frontend && npm install && npm run build"
+]
+
+[phases.build]
+cmds = [
+  "cp -r frontend/dist backend/static"
+]
+
+[start]
+cmd = "python3 backend/app.py"
